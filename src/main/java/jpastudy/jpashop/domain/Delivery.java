@@ -14,6 +14,12 @@ public class Delivery {
     @Column(name="delivery_id")
     private Long id;
 
-    @OneToOne
+    @Enumerated(EnumType.STRING)
+    private DeliveryStatus status;
+
+    @Embedded
+    private Address address;
+
+    @OneToOne(mappedBy = "delivery", fetch = FetchType.LAZY)
     private Order order;
 }

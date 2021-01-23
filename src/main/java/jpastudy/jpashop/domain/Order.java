@@ -16,16 +16,27 @@ public class Order {
 
     private LocalDateTime orderDate;
 
-    @ManyToOne
+    @Enumerated(EnumType.STRING)
+    private OrderStatus status;
+
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="member_id")
     private Member member;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "delivery_id")
     private Delivery delivery;
 
-    //연관관계 메서드
+    // Order 와 Member 연관관계 메서드
     public void setMember(Member member) {
         this.member = member;
         member.getOrders().add(this);
     }
+    // Order와 Delivery 연관관계 메서드
+    public void setDelivery(Delivery delivery) {
+        this.delivery = delivery;
+        delivery.setOrder(this);
+    }
+
+
 }
