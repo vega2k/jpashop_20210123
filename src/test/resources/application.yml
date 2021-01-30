@@ -1,9 +1,6 @@
-server:
-  port: 8087
-
 spring: #띄어쓰기 없음
   datasource: #띄어쓰기 2칸
-    url: jdbc:h2:tcp://localhost/~/jpashop #4칸
+    url: jdbc:h2:mem:testdb #4칸
     username: sa
     password:
     driver-class-name: org.h2.Driver
@@ -18,4 +15,3 @@ spring: #띄어쓰기 없음
 logging.level: #띄어쓰기 없음
   org.hibernate.sql: debug #띄어쓰기 2칸
   org.hibernate.type: trace #띄어쓰기 2칸
-  jpastudy.jpashop: debug
