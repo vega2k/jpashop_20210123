@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header"/>
+<style>
+table td{
+    vertical-align:top;
+    border:solid 1px #888;
+    padding:10px;
+}
+</style>
+</head>
+<body>
+<div th:replace="fragments/bodyHeader :: bodyHeader"></div>
+<div class="container pt-3">
+    <div>
+        <div class="page-header">
+            <h2>My Thymeleaf Error Page</h2>
+        </div>
+        <div>
+            <table>
+                <tr>
+                    <td>Date</td>
+                    <td th:text="${timestamp}"/>
+                </tr>
+                <tr>
+                    <td>ErrorCode</td>
+                    <td th:text="${code}"/>
+                </tr>
+                <tr>
+                    <td>Message</td>
+                    <td th:text="${message}"/>
+                </tr>
+                <tr>
+                    <td>Exception Type</td>
+                    <td th:text="${exception}"/>
+                </tr>
+                <tr>
+                    <td>Path</td>
+                    <td th:text="${path}"/>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div> <!-- /container -->
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>
